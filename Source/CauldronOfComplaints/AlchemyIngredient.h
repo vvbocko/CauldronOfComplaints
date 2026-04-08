@@ -9,7 +9,7 @@
 
 class UStaticMeshComponent;
 
-UCLASS()
+UCLASS(Blueprintable)
 class CAULDRONOFCOMPLAINTS_API AAlchemyIngredient : public AActor
 {
 	GENERATED_BODY()
