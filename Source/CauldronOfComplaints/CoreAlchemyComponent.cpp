@@ -142,3 +142,15 @@ void UCoreAlchemyComponent::CleanCauldron()
 		OnStateChanged.Broadcast();
 	}
 }
+
+void UCoreAlchemyComponent::EmptyCauldron()
+{
+	if (!IsDirty)
+	{
+		Temperature = 0;
+		Acidity = 0;
+		Density = 0;
+
+		OnStateChanged.Broadcast();
+	}
+}

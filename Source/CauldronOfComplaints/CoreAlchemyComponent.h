@@ -58,6 +58,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Alchemy Actions")
 	void CleanCauldron();
 
+	UFUNCTION(BlueprintCallable, Category = "Alchemy Actions")
+	void EmptyCauldron();
+
 protected:
 	virtual void BeginPlay() override;
 
