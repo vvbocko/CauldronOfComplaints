@@ -118,6 +118,7 @@ void UCoreAlchemyComponent::CheckForExplosion()
 {
 	if (FMath::Abs(Temperature) > MaxParameterValue || FMath::Abs(Acidity) > MaxParameterValue || FMath::Abs(Density) > MaxParameterValue)
 	{
+		OnStateChanged.Broadcast();
 		IsDirty = true;
 
 		Temperature = 0;
