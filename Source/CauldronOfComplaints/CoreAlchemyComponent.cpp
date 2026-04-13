@@ -53,56 +53,56 @@ void UCoreAlchemyComponent::ProcessIngredient(EAlchemicalTrait OperationType, in
 
 	switch (OperationType)
 	{
-	case EAlchemicalTrait::Standard:
-	{
-		Temperature += TemperatureModifier;
-		Acidity += AcidModifier;
-		Density += DensityModifier;
-		break;
-	}
-	case EAlchemicalTrait::Inverter:
-	{
-		Acidity = -Acidity;
+		case EAlchemicalTrait::Standard:
+		{
+			Temperature += TemperatureModifier;
+			Acidity += AcidModifier;
+			Density += DensityModifier;
+			break;
+		}
+		case EAlchemicalTrait::Inverter:
+		{
+			Acidity = -Acidity;
 
-		Temperature += TemperatureModifier;
-		Acidity += AcidModifier;
-		Density += DensityModifier;
-		break;
-	}
-	case EAlchemicalTrait::Neutralizer:
-	{
-		int32* Highest = &Temperature;
-		int32* Lowest = &Temperature;
+			Temperature += TemperatureModifier;
+			Acidity += AcidModifier;
+			Density += DensityModifier;
+			break;
+		}
+		case EAlchemicalTrait::Neutralizer:
+		{
+			int32* Highest = &Temperature;
+			int32* Lowest = &Temperature;
 
-		if (Acidity > *Highest)
-		{
-			Highest = &Acidity;
-		}
-		if (Density > *Highest)
-		{
-			Highest = &Density;
-		}
+			if (Acidity > *Highest)
+			{
+				Highest = &Acidity;
+			}
+			if (Density > *Highest)
+			{
+				Highest = &Density;
+			}
 
-		if (Acidity < *Lowest)
-		{
-			Lowest = &Acidity;
-		}
-		if (Density < *Lowest)
-		{
-			Lowest = &Density;
-		}
+			if (Acidity < *Lowest)
+			{
+				Lowest = &Acidity;
+			}
+			if (Density < *Lowest)
+			{
+				Lowest = &Density;
+			}
 
-		if (Highest == Lowest) //jak wszystkie zmienne sa rowne (np. 0, 0, 0)
-		{
-			*Highest -= 1; // Wtedy wszystkich odejmujemy 2 i dodajemy 1, co daje -1
+			if (Highest == Lowest) //jak wszystkie zmienne sa rowne (np. 0, 0, 0)
+			{
+				*Highest -= 1; // Wtedy wszystkich odejmujemy 2 i dodajemy 1, co daje -1
+			}
+			else
+			{
+				*Highest -= 2;
+				*Lowest += 1;
+			}
+			break;
 		}
-		else
-		{
-			*Highest -= 2;
-			*Lowest += 1;
-		}
-		break;
-	}
 	}
 
 	CheckForExplosion();
