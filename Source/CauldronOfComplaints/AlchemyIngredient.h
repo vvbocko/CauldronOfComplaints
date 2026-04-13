@@ -2,7 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "CoreAlchemyComponent.h"
+#include "AlchemyTypes.h"
 
 #include "AlchemyIngredient.generated.h"
 

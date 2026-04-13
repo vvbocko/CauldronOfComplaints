@@ -3,17 +3,9 @@
 #include "CoreMinimal.h"
 #include "Delegates/DelegateCombinations.h"
 #include "Components/ActorComponent.h"
+#include "AlchemyTypes.h"
 
 #include "CoreAlchemyComponent.generated.h"
-
-
-UENUM(BlueprintType)
-enum class EAlchemicalTrait : uint8
-{
-	Standard UMETA(DisplayName = "Standard"),			// adds Modifiers: Temperature, Density, Acidity
-	Inverter UMETA(DisplayName = "Inverter"),			// flips Acidity: acidity * (-1)
-	Neutralizer UMETA(DisplayName = "Neutralizer")		// balances extremes: highest - 1 and lowest +1
-};
 
 class UBoxComponent;
 class AAlchemyIngredient;
